@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.easy.architecture</groupId>
+    <artifactId>microservices</artifactId>
+    <packaging>pom</packaging>
+    <version>0.0.1-SNAPSHOT</version>
+    <modules>
+        <module>easy-discovery-center</module>
+        <module>easy-discovery-client</module>
+        <module>easy-microservice-order</module>
+        <module>easy-microservice-ribbon</module>
+        <module>easy-microservice-api</module>
+        <module>easy-microservice-feign</module>
+        <module>easy-microservice-hystrix</module>
+    </modules>
+    <name>microservices</name>
+    <description>microservices</description>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
+</project>

@@ -1,0 +1,163 @@
+eureka:
+  server:
+    #************node-节点**************
+    #服务端开启自我保护模式，前面章节有介绍
+    enable-self-preservation: true
+    #清除无效服务实例的时间间隔，默认1分钟
+    eviction-interval-timer-in-ms: 60000
+    #客户端续约间隔，用于计算每分钟续约数Renews threshold
+    expected-client-renewal-interval-seconds: 30
+    #请求频率限制器
+    rate-limiter-burst-size: 1
+    #是否开启请求频率限制器
+    rate-limiter-enabled: false
+    #请求频率的平均值
+    rate-limiter-full-fetch-average-rate: 100
+    #设置信任的client list
+    rate-limiter-privileged-clients:
+    #注册服务、拉去服务列表数据的请求频率的平均值
+    rate-limiter-registry-fetch-average-rate: 500
+    #是否对标准的client进行频率请求限制。如果是false，则只对非标准client进行限制
+    rate-limiter-throttle-standard-clients: false
+    #在服务节点启动时，eureka尝试获取注册信息的次数
+    registry-sync-retries: 0
+    #在服务节点启动时，eureka多次尝试获取注册信息的间隔时间
+    registry-sync-retry-wait-ms: 30000
+    #Eureka服务器是否应该登录clientAuthHeaders，默认为true
+    log-identity-headers: true
+    #允许备份到备份池的最大复制事件数量。而这个备份池负责除状态更新的其他事件。可以根据内存大小，超时和复制流量，来设置此值得大小
+    max-elements-in-peer-replication-pool: 10000
+    #允许备份到状态备份池的最大复制事件数量
+    max-elements-in-status-replication-pool: 10000
+    #在设置的时间范围类，期望与client续约的百分比。
+    renewal-percent-threshold: 0.85
+    #多长时间更新续约的阈值,默认15分钟
+    renewal-threshold-update-interval-ms: 900000
+    #对于缓存的注册数据，多长时间过期，3分钟
+    response-cache-auto-expiration-in-seconds: 180
+    #多长时间更新一次缓存中的服务注册数据，30秒
+    response-cache-update-interval-ms: 30000
+    #缓存增量数据的时间，以便在检索的时候不丢失信息，默认3分钟
+    retention-time-in-m-s-in-delta-queue: 180000
+    #当时间戳不一致的时候，是否进行同步
+    sync-when-timestamp-differs: false
+    #*是否采用只读缓存策略，只读策略对于缓存的数据不会过期。
+    use-read-only-response-cache: true
+    #当eureka server启动的时候，不能从对等节点获取instance注册信息的情况，应等待多长时间。5分钟
+    wait-time-in-ms-when-sync-empty: 300000
+    my-url:
+
+    #************peer-集群**************
+    #指示群集节点之间的复制是否应批处理以提高网络效率。
+    batch-replication: false
+    #间隔多长时间，清除过期的 delta 数据
+    delta-retention-timer-interval-in-ms: 30000
+    #是否开启禁用增量功能，默认为false
+    disable-delta: false
+    #增量信息是否可以提供给客户端或一些远程地区，默认为false
+    disable-delta-for-remote-regions: false
+    #如果在远程区域本地没有实例运行，对于应用程序回退的旧行为是否被禁用， 默认为false
+    disable-transparent-fallback-to-other-region: false
+    #复制的数据在发送请求时是否被压缩
+    enable-replicated-request-compression: false
+    #eureka服务器中获取的内容是否在远程地区被压缩
+    g-zip-content-from-remote-region: false
+    #用于定义二级响应缓存的容量大小，默认1000
+    initial-capacity-of-response-cache: 1000
+    #复制线程可以保持存活的空闲时间，默认为15分钟
+    max-idle-thread-age-in-minutes-for-peer-replication: 15
+    #状态复制线程可以保持存活的空闲时间，默认为10分钟
+    max-idle-thread-in-minutes-age-for-status-replication: 10
+    #获取将被用于复制线程的最大数目，默认为20
+    max-threads-for-peer-replication: 20
+    #被用于状态复制的线程的最大数目，默认为1
+    max-threads-for-status-replication: 1
+    #尝试在丢弃复制事件之前进行复制的时间，默认为30000毫秒
+    max-time-for-replication: 30000
+    #正常的对等服务instance最小数量。-1表示服务中心为单节点。
+    min-available-instances-for-peer-replication: -1
+    #获取将被用于复制线程的最小数目，默认为5
+    min-threads-for-peer-replication: 5
+    #被用于状态复制的线程的最小数目，默认为1
+    min-threads-for-status-replication: 1
+    #获取集群里服务器尝试复制数据的次数，默认为5
+    number-of-replication-retries: 5
+    #eureka server更新集群节点间隔时间，默认10分钟，集群节点发送变化时使用。
+    peer-eureka-nodes-update-interval-ms: 60000
+    #eureka服务状态的相互更新的时间间隔。
+    peer-eureka-status-refresh-time-interval-ms: 30000
+    #eureka对等节点间连接超时时间
+    peer-node-connect-timeout-ms: 200
+    #eureka对等节点连接后的空闲时间
+    peer-node-connection-idle-timeout-seconds: 30
+    #eureka服务节点间的读数据连接超时时间,会一致进行重试，如果过小容易造成占用cpu过高
+    peer-node-read-timeout-ms: 200
+    #eureka server 节点间连接的总共最大数量
+    peer-node-total-connections: 1000
+    #eureka server 节点间连接的单机最大数量
+    peer-node-total-connections-per-host: 500
+
+    #**************remote-远程******************
+    #必须通过远程区域中检索的应用程序的列表
+    remote-region-app-whitelist:
+    #连接到对等远程地eureka节点的超时时间，默认为1000毫秒
+    remote-region-connect-timeout-ms: 1000
+    #http连接被清理之后远程地区服务器的空闲时间，默认为30秒
+    remote-region-connection-idle-timeout-seconds: 30
+    #用于执行远程区域注册表请求的线程池的大小，默认为20
+    remote-region-fetch-thread-pool-size: 20
+    #获取从远程地区eureka节点读取信息的超时时间，默认为1000毫秒
+    remote-region-read-timeout-ms: 1000
+    #从远程区域取出该注册表的信息的时间间隔，默认为30秒
+    remote-region-registry-fetch-interval: 30
+    #获取远程地区对等节点上http连接的总数，默认为1000
+    remote-region-total-connections: 1000
+    #获取远程地区特定的对等节点上http连接的总数，默认为500
+    remote-region-total-connections-per-host: 500
+    #用来合格请求远程区域注册表的信任存储文件，默认为空
+    remote-region-trust-store: ""
+    #获取偏远地区信任存储文件的密码，默认为“changeit”
+    remote-region-trust-store-password: changeit
+    #远程地区的URL列表
+    remote-region-urls: 11
+    #针对远程地区发现的网址域名的map
+    remote-region-urls-with-name:
+
+    #**************codec-解析器******************
+    #如果没有设置默认的编解码器将使用xml编解码器，获取的是编码器的类名称
+    xml-codec-name:
+    #如果没有设置默认的编解码器将使用全JSON编解码器，获取的是编码器的类名称
+    json-codec-name:
+    #属性解析器
+    property-resolver:
+
+    #************AWS-节点**************
+    #AWS缓存时间
+    a-s-g-cache-expiry-timeout-ms: 60000
+    #从AWS上更新ASG信息的时间间隔，单位为毫秒
+    a-s-g-update-interval-ms: 300000
+    #查询AWS上ASG（自动缩放组）信息的超时值，单位为毫秒，默认为300
+    a-s-g-query-timeout-ms: 300
+    #获取aws访问的id，主要用于弹性ip绑定，此配置是用于aws上的，默认为null
+    a-w-s-access-id:
+    #获取aws私有秘钥，主要用于弹性ip绑定，此配置是用于aws上的，默认为null
+    a-w-s-secret-key:
+    #aws获取配置绑定EIP或Route53的策略。
+    binding-strategy: eip
+    #获取服务器尝试绑定到候选的EIP的次数，默认为3
+    e-i-p-bind-rebind-retries: 3
+    #与上面的是同一作用，仅仅是稳定状态检查，默认为5 * 60 * 1000
+    e-i-p-binding-retry-interval-ms: 300000
+    #服务器检查ip绑定的时间间隔，单位为毫秒，
+    e-i-p-binding-retry-interval-ms-when-unbound: 60000
+    #用来描述从AWS第三账户的自动缩放组中的角色名称，默认为“ListAutoScalingGroups”
+    list-auto-scaling-groups-role-name: ListAutoScalingGroups
+    #对AWS集群中服务器节点的准备连接，默认为true
+    prime-aws-replica-connections: true
+    #AmazonRoute 53是一项高可用性及高可扩展性域名服务
+    #服务器尝试绑定到候选Route53域的次数，默认为3
+    route53-bind-rebind-retries: 3
+    #服务器应该检查是否和Route53域绑定的时间间隔，默认为5分钟
+    route53-binding-retry-interval-ms: 300000
+    #用于建立route53域的ttl，默认为30
+    route53-domain-t-t-l: 30

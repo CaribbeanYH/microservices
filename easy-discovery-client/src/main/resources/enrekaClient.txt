@@ -1,0 +1,114 @@
+eureka:
+  client:
+    #服务器是否能够重定向客户端请求到备份服务器。
+    #如果设置为false，服务器将直接处理请求，
+    #如果设置为true，它可能发送HTTP重定向到客户端。默认为false
+    allow-redirects: false
+    #获取实例所在的地区下可用性的区域列表，用逗号隔开。
+    availability-zones: zone1,zone2
+    #获取实现了eureka客户端在第一次启动时读取注册表的信息作为回退选项的实现名称
+    backup-registry-impl: ""
+    #执行程序指数回退刷新的相关属性，是重试延迟的最大倍数值，默认为10
+    cache-refresh-executor-exponential-back-off-bound: 10
+    #执行程序缓存刷新线程池的大小，默认为5
+    cache-refresh-executor-thread-pool-size: 2
+    #客户端数据接收的名称？？？？
+    client-data-accept: full
+    #这是一个短暂的解码器的配置，如果最新的解码器是稳定的，则可以去除，默认为null
+    decoder-name: null
+    #指示eureka客户端是否禁用增量提取
+    disable-delta: false
+    #eureka服务器序列化/反序列化的信息中获取“$”符号的替换字符串。默认为“_-”
+    dollar-replacement:
+    #该客户端是否可用
+    enabled: true
+    #编码器名称
+    encoder-name: ""
+    #eureka服务器序列化/反序列化的信息中获取“_”符号的的替换字符串。默认为“__“
+    escape-char-replacement:
+    #连接到 Eureka Server 空闲连接的超时时间（s），默认30
+    eureka-connection-idle-timeout-seconds: 30
+    #连接Eureka Server 超时时间（s），默认5秒
+    eureka-server-connect-timeout-seconds: 5
+
+    #***********DNS***************
+    #获取要查询的DNS名称来获得eureka服务器，此配置只有在eureka服务器ip地址列表是在DNS中才会用到。默认为null
+    eureka-server-d-n-s-name:
+    #获取eureka服务器的端口，此配置只有在eureka服务器ip地址列表是在DNS中才会用到。默认为null
+    eureka-server-port:
+    #表示eureka注册中心的路径，
+    #如果配置为eureka，则为http://ip:port/eureka/，
+    #在eureka的配置文件中加入此配置表示eureka作为客户端向注册中心注册，从而构成eureka集群。此配置只有在eureka服务器ip地址列表是在DNS中才会用到，默认为null
+    eureka-server-u-r-l-context: "eureka"
+    #指示eureka客户端是否应使用DNS机制来获取要与之通信的eureka服务器列表。
+    #当DNS名称更新为具有其他服务器时，eureka客户端轮询eurekaServiceUrlPollIntervalSeconds中指定的信息后立即使用该信息。
+    use-dns-for-fetching-service-urls: false
+
+
+    #读取Eureka Server 超时时间（s），默认8秒
+    eureka-server-read-timeout-seconds: 8
+    #获取从eureka客户端到所有eureka服务器的连接总数,默认200个
+    eureka-server-total-connections: 200
+    #获取从eureka客户端到eureka服务器主机允许的连接总数，默认50个
+    eureka-server-total-connections-per-host: 50
+    #询问Eureka Server信息变化的时间间隔（s），默认为300秒
+    eureka-service-url-poll-interval-seconds: 300
+    #客户端是否获取eureka服务器注册表上的注册信息，默认为true
+    fetch-registry: true
+    #eureka服务注册表信息里的以逗号隔开的地区名单，如果不这样返回这些地区名单，则客户端启动将会出错。默认为null
+    fetch-remote-regions-registry:
+    #是否过滤掉，非UP的实例。默认为true
+    filter-only-up-instances: true
+    #当服务端支持压缩的情况下，是否支持从服务端获取的信息进行压缩。默认为true
+    g-zip-content: true
+    #心跳执行程序回退相关的属性，是重试延迟的最大倍数值，默认为10
+    heartbeat-executor-exponential-back-off-bound: 10
+    #心跳保持线程池初始化线程数，默认2个
+    heartbeat-executor-thread-pool-size: 2
+    #是否开启健康检查
+    healthcheck:
+      enabled: true
+    #是否记录eureka服务器和客户端之间在注册表的信息方面的差异，默认为false
+    log-delta-diff: false
+    #客户端的状态更新到远程服务器上，默认为true
+    on-demand-update-status-change: true
+    #客户端优先级
+    order: 0
+    #实例是否使用同一zone里的eureka服务器，默认为true，理想状态下，eureka客户端与服务端是在同一zone下
+    prefer-same-zone-eureka: true
+    #获取此实例所在的区域
+    region: "us-east-1"
+    #自动刷新开启
+    refresh:
+      enable: true
+    #是否注册到eureka
+    register-with-eureka: true
+    #从eureka服务器获取注册表信息的频率，默认30秒
+    registry-fetch-interval-seconds: 30
+    #此客户端只对单一的VIP注册表的信息感兴趣。默认为null
+    registry-refresh-single-vip-address:
+    #与Eureka注册服务中心的通信zone和url地址,分区时使用，一般默认使用defaultZone
+    service-url:
+      defaultZone: http://ip:port/eureka/,http://ip:port/eureka/
+      Zone1: http://ip:port/eureka/,http://ip:port/eureka/
+    #client是否在初始化阶段强行注册到服务中心，默认为false
+    should-enforce-registration-at-init: false
+    #client在shutdown情况下，是否显示从注册中心注销，默认为true
+    should-unregister-on-shutdown: true
+    #更新实例信息的变化到Eureka服务端的间隔时间，（s）
+    instance-info-replication-interval-seconds: 30
+    #初始化实例信息到Eureka服务端的间隔时间，（s）
+    initial-instance-info-replication-interval-seconds: 40
+
+    #**********codec-解析器*************
+    property-resolver:
+
+    #**********proxy-代理*************
+    #获取eureka server 的代理主机名
+    proxy-host:
+    #获取eureka server 的代理主机密码
+    proxy-password:
+    #获取eureka server 的代理主机端口
+    proxy-port:
+    #获取eureka server 的代理用户名
+    proxy-user-name:

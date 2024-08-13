@@ -1,0 +1,78 @@
+eureka:
+  instance:
+    #***********instance-属性*****************
+    #注册到注册中心的应用所属分组名称
+    app-group-name:
+    #*注册到注册中心的应用名称
+    appname: unknown
+    #指定服务实例所属数据中心
+    data-center-info:
+    #默认地址解析顺序
+    default-address-resolution-order:
+    #该服务实例环境配置，默认test
+    environment: test
+    #*该服务实例所在主机名
+    hostname:
+    #*该服务实例在注册中心的唯一实例ID
+    instance-id:
+    #*该服务实例的IP地址
+    ip-address:
+    #该服务实例注册到Eureka Server 的初始状态
+    initial-status: up
+    #指示是否应在eureka注册后立即启用实例以获取流量
+    instance-enabled-onit: false
+    #表示eureka client发送心跳给server端的频率,默认30秒
+    #如果在leaseExpirationDurationInSeconds后,server端没有收到client的心跳，则将摘除该instance。
+    #除此之外，如果该instance实现了HealthCheckCallback，并决定让自己unavailable的话，则该instance也不会接收到流量。
+    lease-renewal-interval-in-seconds: 30
+    #表示eureka server至上一次收到client的心跳之后，等待下一次心跳的超时时间，默认90秒
+    #在这个时间内若没收到下一次心跳，则将移除该instance。
+    #如果该值太大，则很可能将流量转发过去的时候，该instance已经不存活了。
+    #如果该值设置太小了，则instance则很可能因为临时的网络抖动而被摘除掉。该值至少应该大于
+    lease-expiration-duration-in-seconds: 90
+    #自定义的元数据，key/value都可以随便写。
+    metadata-map:
+      myKey: myvalue
+    #获取用于查找属性的命名空间。 在Spring Cloud中被忽略。
+    namespace: eureka
+    #http通信端口
+    non-secure-port: 80
+    #是否启用HTTP通信端口
+    non-secure-port-enabled: true
+    #*是否优先使用服务实例的IP地址，相较于hostname
+    prefer-ip-address: false
+    registry:
+      #默认与eureka server开启通信的数量
+      default-open-for-traffic-count: 1
+      #每分钟向eureka server的续约次数
+      expected-number-of-clients-sending-renews: 1
+
+    #*********check-健康检查*************
+    #该服务实例的健康检查地址（url），绝对地址
+    health-check-url:
+    #该服务实例的健康检查地址，相对地址
+    health-check-url-path: /actuator/health
+    #该服务实例的主页地址（url），绝对地址
+    home-page-url:
+    #该服务实例的主页地址，相对地址
+    home-page-url-path: /
+    #该服务实例的状态检查地址（url），绝对地址
+    status-page-url:
+    #该服务实例的状态检查地址，相对地址
+    status-page-url-path: /actuator/info
+
+    #**************https****************
+    #该服务实例安全健康检查地址（URL），绝对地址
+    secure-health-check-url:
+    #HTTPS通信端口
+    secure-port: 443
+    #是否启用HTTPS通信端口
+    secure-port-enabled: false
+    #服务实例安全主机名称（HTTPS）
+    secure-virtual-host-name: unknown
+    #该服务实例非安全注解名称（HTTP）
+    virtual-host-name: unknown
+
+    #***********AWS***************
+    #注册到注册中心的应用所属分组名称（AWS服务器）
+    a-s-g-name: ""
