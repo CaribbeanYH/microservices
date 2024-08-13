@@ -4,6 +4,7 @@ import com.easy.architecture.api.dto.OrderDTO;
 import com.easy.architecture.easymicroserviceorder.config.ServerConfig;
 import com.easy.architecture.easymicroserviceorder.service.IOrderService;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.cloud.commons.util.InetUtils;
 import org.springframework.stereotype.Service;
 
@@ -29,11 +30,18 @@ public class OrderServiceImpls implements IOrderService {
 
     @Override
     public List<OrderDTO> queryUserOrders(String pin) {
+        try {
+            if (StringUtils.equals(pin, "hystrix")) {
+                Thread.sleep(2000);
+            }
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
         List<OrderDTO> result = new ArrayList<>();
         OrderDTO orderDTO = new OrderDTO();
-        orderDTO.setPin("xxx");
+        orderDTO.setPin(pin);
         orderDTO.setOrderId(114253513412341234L);
-        orderDTO.setSkuName("华硕玩家国度i9-1490HX");
+        orderDTO.setSkuName("华硕玩家国度" + pin + "i9-1490HX");
         orderDTO.setSkuNum(1);
         result.add(orderDTO);
         String ipAddress = inetUtils.findFirstNonLoopbackHostInfo().getIpAddress();
