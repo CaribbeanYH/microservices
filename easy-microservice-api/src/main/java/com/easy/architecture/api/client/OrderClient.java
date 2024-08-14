@@ -1,7 +1,7 @@
 package com.easy.architecture.api.client;
 
 import com.easy.architecture.api.dto.OrderDTO;
-import com.easy.architecture.api.fallback.OrderFallBack;
+import com.easy.architecture.api.fallback.OrderClientFallBack;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -26,7 +26,7 @@ import java.util.List;
  * primary:            是否将此Feign代理标记为一个Primary Bean，默认为ture
  */
 //@FeignClient(name = "easy-microservice-order", fallback = OrderFallBack.class)
-@FeignClient(name = "easy-microservice-order", fallback = OrderFallBack.class)
+@FeignClient(name = "easy-microservice-order", fallback = OrderClientFallBack.class)
 public interface OrderClient {
 
     /**

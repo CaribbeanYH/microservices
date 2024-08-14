@@ -32,7 +32,7 @@ public class OrderServiceImpls implements IOrderService {
     public List<OrderDTO> queryUserOrders(String pin) {
         try {
             if (StringUtils.equals(pin, "hystrix")) {
-                Thread.sleep(2000);
+                Thread.sleep(4000);
             }
         } catch (Exception exception) {
             exception.printStackTrace();
