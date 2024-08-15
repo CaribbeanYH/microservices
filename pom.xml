@@ -14,6 +14,7 @@
         <module>easy-microservice-api</module>
         <module>easy-microservice-feign</module>
         <module>easy-microservice-hystrix</module>
+        <module>easy-microservice-gateway</module>
     </modules>
     <name>microservices</name>
     <description>microservices</description>
