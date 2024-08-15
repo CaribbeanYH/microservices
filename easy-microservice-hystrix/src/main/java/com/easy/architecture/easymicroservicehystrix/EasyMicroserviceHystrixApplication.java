@@ -17,7 +17,7 @@ import org.springframework.context.annotation.ComponentScan;
  * @Description
  * @date 2024/7/28 19:09
  */
-@EnableHystrixDashboard
+//@EnableHystrixDashboard
 @EnableHystrix
 @EnableEurekaClient
 @EnableFeignClients(basePackages = {"com.easy.architecture"})
@@ -34,14 +34,14 @@ public class EasyMicroserviceHystrixApplication {
      *
      * @return ServletRegistrationBean<HystrixMetricsStreamServlet> 返回 HystrixMetricsStreamServlet 的 ServletRegistrationBean 对象
      */
-    @Bean
-    public ServletRegistrationBean<HystrixMetricsStreamServlet> getServlet() {
-        HystrixMetricsStreamServlet streamServlet = new HystrixMetricsStreamServlet();
-        ServletRegistrationBean<HystrixMetricsStreamServlet> registrationBean = new ServletRegistrationBean<HystrixMetricsStreamServlet>(streamServlet);
-        registrationBean.setLoadOnStartup(1);
-        registrationBean.addUrlMappings("/hystrix.stream");
-        registrationBean.setName("HystrixMetricsStreamServlet");
-        return registrationBean;
-    }
+//    @Bean
+//    public ServletRegistrationBean<HystrixMetricsStreamServlet> getServlet() {
+//        HystrixMetricsStreamServlet streamServlet = new HystrixMetricsStreamServlet();
+//        ServletRegistrationBean<HystrixMetricsStreamServlet> registrationBean = new ServletRegistrationBean<HystrixMetricsStreamServlet>(streamServlet);
+//        registrationBean.setLoadOnStartup(1);
+//        registrationBean.addUrlMappings("/hystrix.stream");
+//        registrationBean.setName("HystrixMetricsStreamServlet");
+//        return registrationBean;
+//    }
 
 }
