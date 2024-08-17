@@ -23,18 +23,18 @@ spring:
   # 应用名称
   application:
     name: easy-microservice-gateway
-#  # 路由的配置
-#  cloud:
-#    gateway:
-#      routes:
-#        - id: search
-#          uri: https://bing.com
-#          predicates: # 断言，作为路由的匹配条件，对应 RouteDefinition 数组
-#            - Path=/api/search
-#        - id: easy-microservice-order
-#          uri: lb://easy-microservice-order
-#          predicates: # 断言，作为路由的匹配条件，对应 RouteDefinition 数组
-#            - Path=/queryOrderInfos/
+  # 路由的配置
+  cloud:
+    gateway:
+      routes:
+        - id: search
+          uri: https://bing.com
+          predicates: # 断言，作为路由的匹配条件，对应 RouteDefinition 数组
+            - Path=/api/search
+        - id: easy-microservice-order
+          uri: lb://easy-microservice-order
+          predicates: # 断言，作为路由的匹配条件，对应 RouteDefinition 数组
+            - Path=/queryOrderInfos
 
 
 
