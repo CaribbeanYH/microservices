@@ -1,7 +1,10 @@
+# 属性对应服务注册中心的配置内容，指定服务注册中心的位置。为了在本机上测试区分服务提供方和服务注册中心，使用server.port属性设置不同的端口。
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8088/eureka/
+
+# 显示任意的应用信息，默认关闭  springBoot版本：2.7.5 CURRENT  GA如果是更低一些的版本默认是开启的
 management:
   endpoint:
     health:
@@ -12,19 +15,26 @@ management:
       base-path: /actuator
       exposure:
         include: '*'
+
+# 应用端口
 server:
   port: 10000
 spring:
+  # 应用名称
   application:
     name: easy-microservice-gateway
-
-  cloud:
-    gateway:
-      routes:
-        - id: xxxx
-          url: xxx
-          predicates:
-            - /xxx
+#  # 路由的配置
+#  cloud:
+#    gateway:
+#      routes:
+#        - id: search
+#          uri: https://bing.com
+#          predicates: # 断言，作为路由的匹配条件，对应 RouteDefinition 数组
+#            - Path=/api/search
+#        - id: easy-microservice-order
+#          uri: lb://easy-microservice-order
+#          predicates: # 断言，作为路由的匹配条件，对应 RouteDefinition 数组
+#            - Path=/queryOrderInfos/
 
 
 
