@@ -1,0 +1,31 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8088/eureka/
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    enabled-by-default: true
+    web:
+      base-path: /actuator
+      exposure:
+        include: '*'
+server:
+  port: 10000
+spring:
+  application:
+    name: easy-microservice-gateway
+
+  cloud:
+    gateway:
+      routes:
+        - id: xxxx
+          url: xxx
+          predicates:
+            - /xxx
+
+
+
+
