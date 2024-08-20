@@ -25,7 +25,7 @@ import java.util.List;
  * path:               定义当前FeignClient的所有方法映射加统一前缀。
  * primary:            是否将此Feign代理标记为一个Primary Bean，默认为ture
  */
-//@FeignClient(name = "easy-microservice-order", fallback = OrderFallBack.class)
+//@FeignClient(name = "easy-microservice-order")
 @FeignClient(name = "easy-microservice-order", fallback = OrderClientFallBack.class)
 public interface OrderClient {
 

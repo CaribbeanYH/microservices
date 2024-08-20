@@ -3,6 +3,8 @@
 
     <property name="system.log.level" value="DEBUG"/>
     <property name="system.console.log.level" value="INFO"/>
+    <!-- 加载 Spring 配置文件信息 -->
+    <springProperty scope="context" name="applicationName" source="spring.application.name" defaultValue="localhost"/>
 
     <!-- 输出到控制台 -->
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
@@ -11,10 +13,14 @@
         </filter>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <!--格式化输出,%date:日期时间;%thread:线程名;%-5level：级别,从左显示5个字符宽度;%msg:日志消息;%n:换行符-->
-            <pattern>%date{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36}.%M-%line - %msg%n</pattern>
+            <pattern>%date{yyyy-MM-dd HH:mm:ss.SSS} [${applicationName},%X{X-B3-TraceId:-},%X{X-B3-SpanId:-}] [%thread] %-5level %logger{36}.%M-%line - %msg%n</pattern>
             <charset>UTF-8</charset>
         </encoder>
     </appender>
+
+    <logger name="org.springframework.cloud.sleuth" level="DEBUG" additivity="false">
+        <appender-ref ref="console"/>
+    </logger>
 
     <root level="INFO">
         <appender-ref ref="console"/>
