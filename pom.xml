@@ -16,6 +16,7 @@
         <module>easy-microservice-hystrix</module>
         <module>easy-microservice-gateway</module>
         <module>easy-microservice-monitor</module>
+        <module>easy-architecture-netty</module>
     </modules>
     <name>microservices</name>
     <description>microservices</description>
