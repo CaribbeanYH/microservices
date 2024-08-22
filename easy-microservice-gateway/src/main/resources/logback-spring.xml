@@ -11,7 +11,7 @@
         </filter>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <!--格式化输出,%date:日期时间;%thread:线程名;%-5level：级别,从左显示5个字符宽度;%msg:日志消息;%n:换行符-->
-            <pattern>%date{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36}.%M-%line - %msg%n</pattern>
+            <pattern>%date{yyyy-MM-dd HH:mm:ss.SSS} [${applicationName},%X{traceId}] [%thread] %-5level %logger{36}.%M-%line - %msg%n</pattern>
             <charset>UTF-8</charset>
         </encoder>
     </appender>

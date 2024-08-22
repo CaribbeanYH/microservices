@@ -35,7 +35,21 @@ spring:
           uri: lb://easy-microservice-order
           predicates: # 断言，作为路由的匹配条件，对应 RouteDefinition 数组
             - Path=/queryOrderInfos
+  #链路监控
+  sleuth:
+    sampler:
+      # 采样率的概率，100%采样
+      probability: 1.0
+      # 每秒采样数字最高为1000
+      rate: 1000
+  zipkin:
+    base-url: http://localhost:9411/ # 服务端地址
+    sender:
+      type: web                      # 数据传输方式，web 表示以 HTTP 报文的形式向服务端发送数据
 
+logging:
+  level:
+    org.springframework.cloud.sleuth: debug
 
 
 
