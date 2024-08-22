@@ -17,6 +17,7 @@
         <module>easy-microservice-gateway</module>
         <module>easy-microservice-monitor</module>
         <module>easy-architecture-netty</module>
+        <module>easy-microservice-nacos</module>
     </modules>
     <name>microservices</name>
     <description>microservices</description>
