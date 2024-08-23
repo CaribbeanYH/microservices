@@ -5,11 +5,18 @@ management:
         include: '*'
 
 server:
-  port: 8081
+  port: 20000
 spring:
   application:
     name: nacos-center
   cloud:
     nacos:
+      config:
+        group: DEFAULT_GROUP
+        server-addr: 127.0.0.1:8848
+        enabled: true
       discovery:
         server-addr: 127.0.0.1:8848
+        enabled: true
+        username: nacos
+        password: nacos
