@@ -24,14 +24,14 @@ public class EasyMicroserviceGateWayApplication {
     }
 
 
-//    @Bean
-//    public RouteLocator routeLocator(RouteLocatorBuilder routeLocatorBuilder) {
-//
-//        return routeLocatorBuilder.routes()
-//                .route("search", r -> r.path("/api/search").uri("https://bing.com"))
-//                .route("easy-microservice-order", r -> r.path("/queryOrderInfos").uri("lb://easy-microservice-order"))
-//                .build();
-//    }
+    @Bean
+    public RouteLocator routeLocator(RouteLocatorBuilder routeLocatorBuilder) {
+
+        return routeLocatorBuilder.routes()
+                .route("search", r -> r.path("/api/search").uri("https://bing.com"))
+                .route("easy-microservice-order", r -> r.path("/queryOrderInfos").uri("lb://easy-microservice-order"))
+                .build();
+    }
 
 
     /*
