@@ -1,4 +1,4 @@
-package org.nio.inout;
+package com.easy.architecture.io.inout;
 
 import java.io.FileOutputStream;
 import java.nio.channels.FileChannel;

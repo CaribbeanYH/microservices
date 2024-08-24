@@ -1,4 +1,4 @@
-package org.nio.socket.pattern.oneReactorOneThread;
+package com.easy.architecture.io.socket.pattern.oneReactorOneThread;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;

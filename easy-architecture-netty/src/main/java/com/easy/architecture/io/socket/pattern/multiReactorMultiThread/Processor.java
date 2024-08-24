@@ -1,4 +1,4 @@
-package org.nio.socket.pattern.multiReactorMultiThread;
+package com.easy.architecture.io.socket.pattern.multiReactorMultiThread;
 
 
 import java.io.IOException;

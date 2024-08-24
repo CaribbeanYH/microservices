@@ -1,4 +1,4 @@
-package org.nio.inout.scatterandgather;
+package com.easy.architecture.io.inout.scatterandgather;
 
 import java.io.IOException;
 import java.io.RandomAccessFile;

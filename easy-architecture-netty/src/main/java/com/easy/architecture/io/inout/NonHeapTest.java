@@ -1,4 +1,4 @@
-package org.nio.inout;
+package com.easy.architecture.io.inout;
 
 /**
  * Created by andilyliao on 16-5-19.

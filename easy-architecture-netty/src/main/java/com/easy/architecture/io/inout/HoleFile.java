@@ -1,6 +1,5 @@
-package org.nio.inout;
+package com.easy.architecture.io.inout;
 
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;

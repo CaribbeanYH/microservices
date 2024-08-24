@@ -1,4 +1,4 @@
-package org.nio.inout.scatterandgather;
+package com.easy.architecture.io.inout.scatterandgather;
 
 /**
  * Created by andilyliao on 16-6-1.

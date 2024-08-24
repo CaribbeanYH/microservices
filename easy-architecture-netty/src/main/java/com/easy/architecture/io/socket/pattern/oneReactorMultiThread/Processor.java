@@ -1,4 +1,4 @@
-package org.nio.socket.pattern.oneReactorMultiThread;
+package com.easy.architecture.io.socket.pattern.oneReactorMultiThread;
 
 
 import java.nio.ByteBuffer;
