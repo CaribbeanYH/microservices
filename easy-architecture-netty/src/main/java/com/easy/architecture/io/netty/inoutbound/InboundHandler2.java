@@ -1,13 +1,16 @@
 package com.easy.architecture.io.netty.inoutbound;
 
-/**
- * Created by andilyliao on 16-6-1.
- */
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 
+/**
+ * @author yanghai10
+ * @ClassName
+ * @Description
+ * @date 2024/9/21 01:45
+ */
 public class InboundHandler2 extends ChannelInboundHandlerAdapter {
 
     @Override

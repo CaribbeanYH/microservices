@@ -1,9 +1,11 @@
 package com.easy.architecture.io.netty.inoutbound;
 
 /**
- * Created by andilyliao on 16-6-1.
+ * @author yanghai10
+ * @ClassName
+ * @Description
+ * @date 2024/9/21 01:45
  */
-
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 

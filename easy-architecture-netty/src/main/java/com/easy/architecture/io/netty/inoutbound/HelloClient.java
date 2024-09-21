@@ -1,13 +1,16 @@
 package com.easy.architecture.io.netty.inoutbound;
 
-/**
- * Created by andilyliao on 16-6-1.
- */
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
 
+/**
+ * @author yanghai10
+ * @ClassName
+ * @Description
+ * @date 2024/9/21 01:45
+ */
 public class HelloClient {
     public void connect(String host, int port) throws Exception {
         EventLoopGroup workerGroup = new NioEventLoopGroup();
