@@ -60,26 +60,6 @@ public final class WebSocketServer {
             System.out.println("服务已开启,等待客户端连接......");
             //下面会进行阻塞，等待服务器连接关闭之后 main 方法退出，程序结束
             ch.closeFuture().sync();
-//            new Thread(() -> {
-//                /**
-//                 * 将输入信息传输到 client 端
-//                 */
-//                BufferedReader console = new BufferedReader(new InputStreamReader(System.in));
-//                while (true) {
-//                    try {
-//                        String msg = console.readLine();
-//                        if (StringUtil.isNullOrEmpty(msg)) {
-//                            break;
-//                        } else {
-//                            WebSocketFrame frame = new TextWebSocketFrame(msg);
-//                            ch.writeAndFlush(frame);
-//                        }
-//                    } catch (Exception exception) {
-//                        WebSocketFrame frame = new TextWebSocketFrame("client, 我挂了！！！");
-//                        ch.writeAndFlush(frame);
-//                    }
-//                }
-//            }).start();
         } catch (InterruptedException e) {
             e.printStackTrace();
         } finally {

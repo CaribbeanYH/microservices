@@ -74,19 +74,19 @@ public class WebSocketFrameHandler extends SimpleChannelInboundHandler<WebSocket
         channelGroup.add(ctx.channel());
     }
 
-    /**
-     * 给指定用户发内容
-     * 后续可以掉这个方法推送消息给客户端
-     */
-    public void sendMessage(String address, String message) {
-        Channel channel = channelMap.get(address);
-        channel.writeAndFlush(new TextWebSocketFrame(message));
-    }
-
-    /**
-     * 群发消息
-     */
-    public void sendMessageAll(String message) {
-        channelGroup.writeAndFlush(new TextWebSocketFrame(message));
-    }
+//    /**
+//     * 给指定用户发内容
+//     * 后续可以掉这个方法推送消息给客户端
+//     */
+//    public void sendMessage(String address, String message) {
+//        Channel channel = channelMap.get(address);
+//        channel.writeAndFlush(new TextWebSocketFrame(message));
+//    }
+//
+//    /**
+//     * 群发消息
+//     */
+//    public void sendMessageAll(String message) {
+//        channelGroup.writeAndFlush(new TextWebSocketFrame(message));
+//    }
 }
