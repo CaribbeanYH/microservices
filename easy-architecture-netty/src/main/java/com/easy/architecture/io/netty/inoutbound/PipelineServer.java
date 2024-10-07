@@ -12,7 +12,7 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
  * @Description
  * @date 2024/9/21 01:45
  */
-public class HelloServer {
+public class PipelineServer {
     public void start(int port) throws Exception {
         EventLoopGroup bossGroup = new NioEventLoopGroup();
         EventLoopGroup workerGroup = new NioEventLoopGroup();
@@ -31,14 +31,25 @@ public class HelloServer {
 //                            //OutboundHandler1 --> OutboundHandler2 --> InboundHandler1 --> InboundHandler2
 //                            //ctx.writeAndFlush(msg) 与 ctx.channel().writeAndFlush(msg); 都是从InboundHandler2向前找out
 
-                            // 注册两个InboundHandler，执行顺序为注册顺序，所以应该是InboundHandler1 InboundHandler2
-                            ch.pipeline().addLast(new InboundHandler1());
-                            ch.pipeline().addLast(new InboundHandler2());
-                            // 注册两个OutboundHandler，执行顺序为注册顺序的逆序，所以应该是OutboundHandler2 OutboundHandler1
-                            ch.pipeline().addLast(new OutboundHandler1());
-                            ch.pipeline().addLast(new OutboundHandler2());
-                            //InboundHandler1 --> InboundHandler2 --> OutboundHandler1 --> OutboundHandler2
-                            //InboundHandler2 是ctx.writeAndFlush(msg); 会从InboundHandler2开始找out，没有了out了
+
+//                            // 注册两个OutboundHandler，执行顺序为注册顺序的逆序，所以应该是OutboundHandler1 OutboundHandler2
+//                            ch.pipeline().addLast(new OutboundHandler2());
+//                            ch.pipeline().addLast(new OutboundHandler1());
+//                            // 注册两个InboundHandler，执行顺序为注册顺序，所以应该是InboundHandler1 InboundHandler2
+//                            ch.pipeline().addLast(new InboundHandler1());
+//                            ch.pipeline().addLast(new InboundHandler2());
+//                            //OutboundHandler2 --> OutboundHandler1 --> InboundHandler1 --> InboundHandler2
+//                            //ctx.writeAndFlush(msg) 与 ctx.channel().writeAndFlush(msg); 都是从InboundHandler2向前找out
+
+
+//                            // 注册两个InboundHandler，执行顺序为注册顺序，所以应该是InboundHandler1 InboundHandler2
+//                            ch.pipeline().addLast(new InboundHandler1());
+//                            ch.pipeline().addLast(new InboundHandler2());
+//                            // 注册两个OutboundHandler，执行顺序为注册顺序的逆序，所以应该是OutboundHandler2 OutboundHandler1
+//                            ch.pipeline().addLast(new OutboundHandler1());
+//                            ch.pipeline().addLast(new OutboundHandler2());
+//                            //InboundHandler1 --> InboundHandler2 --> OutboundHandler1 --> OutboundHandler2
+//                            //InboundHandler2 是ctx.writeAndFlush(msg); 会从InboundHandler2开始找out，没有了out了
                         }
                     }).option(ChannelOption.SO_BACKLOG, 128)
                     .childOption(ChannelOption.SO_KEEPALIVE, true);
@@ -53,7 +64,7 @@ public class HelloServer {
     }
 
     public static void main(String[] args) throws Exception {
-        HelloServer server = new HelloServer();
+        PipelineServer server = new PipelineServer();
         server.start(8000);
     }
 }

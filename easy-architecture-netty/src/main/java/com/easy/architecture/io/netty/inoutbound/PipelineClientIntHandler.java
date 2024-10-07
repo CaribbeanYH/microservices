@@ -11,7 +11,7 @@ import io.netty.channel.ChannelInboundHandlerAdapter;
  * @Description
  * @date 2024/9/21 01:45
  */
-public class HelloClientIntHandler extends ChannelInboundHandlerAdapter {
+public class PipelineClientIntHandler extends ChannelInboundHandlerAdapter {
     @Override
     // 读取服务端的信息
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {

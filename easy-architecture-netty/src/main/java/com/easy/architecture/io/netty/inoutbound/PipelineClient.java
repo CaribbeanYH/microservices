@@ -11,7 +11,7 @@ import io.netty.channel.socket.nio.NioSocketChannel;
  * @Description
  * @date 2024/9/21 01:45
  */
-public class HelloClient {
+public class PipelineClient {
     public void connect(String host, int port) throws Exception {
         EventLoopGroup workerGroup = new NioEventLoopGroup();
 
@@ -23,7 +23,7 @@ public class HelloClient {
             b.handler(new ChannelInitializer() {
                 @Override
                 protected void initChannel(Channel ch) throws Exception {
-                    ch.pipeline().addLast(new HelloClientIntHandler());
+                    ch.pipeline().addLast(new PipelineClientIntHandler());
                 }
             });
 
@@ -36,7 +36,7 @@ public class HelloClient {
     }
 
     public static void main(String[] args) throws Exception {
-        HelloClient client = new HelloClient();
+        PipelineClient client = new PipelineClient();
         client.connect("127.0.0.1", 8000);
     }
 }
